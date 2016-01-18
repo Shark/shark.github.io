@@ -19,6 +19,7 @@ github_username:  Shark
 markdown: kramdown
 include:
   - .nojekyll
+  - CNAME
 exclude:
   - node_modules
   - bower_components
