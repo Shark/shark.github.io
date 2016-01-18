@@ -12,14 +12,24 @@ description: > # this means to ignore newlines until "baseurl:"
   Welcome! This is Felix Seidel's portfolio.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://felix.seidel.me" # the base hostname & protocol for your site
-twitter_username: sh4rk
-github_username:  Shark
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      header_nav: true
+      footer_nav: false
 
 # Build settings
 markdown: kramdown
 include:
   - .nojekyll
   - CNAME
+  - _static
+  - _pages
+  - assets
 exclude:
   - node_modules
   - bower_components
@@ -27,5 +37,6 @@ exclude:
   - bower.json
   - Gruntfile.coffee
   - Rakefile
+  - Gemfile
   - .ruby-gemset
   - .ruby-version

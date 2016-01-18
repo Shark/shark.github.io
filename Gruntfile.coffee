@@ -22,6 +22,18 @@ module.exports = (grunt) ->
           ]
           dest: "vendor/css/"
         }]
+      ionicons:
+        files: [{
+          expand: true
+          cwd: "bower_components/Ionicons/css"
+          src: "ionicons.min.css"
+          dest: "vendor/css/"
+        },{
+          expand: true
+          cwd: "bower_components/Ionicons/fonts"
+          src: "*"
+          dest: "vendor/fonts/"
+        }]
 
     exec:
       jekyll:
@@ -36,8 +48,12 @@ module.exports = (grunt) ->
           "_includes/**/*"
           "_layouts/**/*"
           "_posts/**/*"
+          "_static/**/*"
+          "_pages/**/*"
+          "_sass/**/*"
           "css/**/*"
           "js/**/*"
+          "assets/**/*"
           "_config.yml"
           "*.html"
           "*.md"
