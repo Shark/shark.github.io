@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "description": "Shark's portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shark/shark.github.io.git"
+  },
+  "author": "Felix Seidel <felix@seidel.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shark/shark.github.io/issues"
+  },
+  "homepage": "https://github.com/Shark/shark.github.io#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6"
+  }
+}

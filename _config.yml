@@ -19,3 +19,14 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+include:
+  - .nojekyll
+exclude:
+  - node_modules
+  - bower_components
+  - package.json
+  - bower.json
+  - Gruntfile.coffee
+  - Rakefile
+  - .ruby-gemset
+  - .ruby-version

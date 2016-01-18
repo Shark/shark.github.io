@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "homepage": "https://felix.seidel.me",
+  "authors": [
+    "Felix Seidel <felix@seidel.me>"
+  ],
+  "description": "Shark's portfolio site",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "pure": "~0.6.0"
+  }
+}
