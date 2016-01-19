@@ -91,10 +91,13 @@ pre {
 .site-title {
   font-size: 26px;
   font-weight: 300;
-  line-height: 113px;
+  line-height: 60px;
   letter-spacing: -1px;
   margin-bottom: 0;
   text-align: center; }
+  @media screen and (min-width: 768px) {
+    .site-title {
+      line-height: 113px; } }
   .site-title a,
   .site-title a:visited {
     color: #377A00; }
@@ -105,9 +108,12 @@ pre {
       text-align: left; } }
 
 .site-nav {
-  line-height: 100px;
+  line-height: 50px;
   margin-bottom: 0;
   text-align: center; }
+  @media screen and (min-width: 768px) {
+    .site-nav {
+      line-height: 100px; } }
   .site-nav a.pure-menu-link,
   .site-nav a.pure-menu-link:hover,
   .site-nav a.pure-menu-link:visited {
@@ -127,6 +133,11 @@ pre {
   .site-footer a:hover,
   .site-footer a.pure-menu-link:visited {
     color: #377A00; }
+  .site-footer .site-footer-spacing {
+    margin-bottom: 15px; }
+    @media screen and (min-width: 768px) {
+      .site-footer .site-footer-spacing {
+        margin-bottom: inherit; } }
 
 .site-footer-notes {
   margin-top: 15px; }
