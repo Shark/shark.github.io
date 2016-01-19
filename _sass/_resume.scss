@@ -1,0 +1,83 @@
+.resume {
+  a, a:hover, a:visited { color: inherit; }
+
+  .resume-section:not(:first-child) {
+    padding-top: $spacing-unit / 2;
+  }
+
+  .resume-section:not(:last-child) {
+    border-bottom: 1px solid $grey-color-light;
+    padding-bottom: $spacing-unit / 2;
+  }
+
+  .resume-section-title h2 {
+    margin: 0;
+    padding: 0;
+    color: $brand-color;
+    font-weight: normal;
+  }
+
+  .resume-section-content {
+    font-size: 14pt;
+  }
+
+  .cols-content {
+    font-size: 10pt;
+  }
+
+  .work-unit {
+    .work-unit-timespan { float: right; }
+
+    .work-unit-job-title {
+      font-size: 10pt;
+    }
+
+    .work-unit-job-description {
+      font-size: 12pt;
+      margin-top: $spacing-unit / 4;
+    }
+  }
+
+  .work-unit:not(:first-child) {
+    margin-top: 25px;
+  }
+
+  .technologies {
+    font-size: 12pt;
+
+    div {
+      margin: 0 5px 0 5px;
+    }
+
+    .skill-level {
+      display: inline-block;
+      font-style: italic;
+    }
+
+    .technology {
+      display: inline-block;
+    }
+  }
+
+  .education-unit {
+    .education-unit-timespan { float: right; }
+
+    .education-unit-extra {
+      font-size: 10pt;
+    }
+
+    .education-unit-description {
+      font-size: 12pt;
+      margin-top: $spacing-unit / 4;
+    }
+  }
+
+  .education-unit:not(:first-child) {
+    margin-top: 25px;
+  }
+
+  ul.plain-list {
+    margin: 0;
+    list-style-type: square;
+  }
+}
