@@ -5,6 +5,11 @@ html, body, button, input, select, textarea,
 .pure-g [class*="pure-u"] {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+.pure-g > div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 body {
   font: 400 16px/1.5 "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #111;
@@ -298,3 +303,28 @@ pre {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+.home h1 {
+  font-size: 20pt;
+  margin-top: 0;
+  display: inline-block; }
+.home .column:last-child {
+  padding: 10px 0; }
+@media screen and (min-width: 768px) {
+  .home .column:last-child {
+    padding: 0 0 0 10px; } }
+.home .post-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+.home span.subscribe {
+  margin-left: 10px;
+  display: inline-block; }
+
+.about .column:last-child {
+  padding: 10px 0; }
+@media screen and (min-width: 768px) {
+  .about .column:last-child {
+    padding: 0 0 0 10px; } }
+.about .portrait {
+  text-align: center; }

@@ -6,9 +6,22 @@
 </description>
     <link>https://felix.seidel.me/</link>
     <atom:link href="https://felix.seidel.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Jan 2016 12:13:28 +0100</pubDate>
-    <lastBuildDate>Tue, 19 Jan 2016 12:13:28 +0100</lastBuildDate>
+    <pubDate>Tue, 19 Jan 2016 13:41:13 +0100</pubDate>
+    <lastBuildDate>Tue, 19 Jan 2016 13:41:13 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Hello World!</title>
+        <description>&lt;p&gt;This is the first blog post on this site!&lt;/p&gt;
+
+&lt;p&gt;I’ll write new posts every now and then, so please subscribe and stay tuned.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Jan 2016 22:32:10 +0100</pubDate>
+        <link>https://felix.seidel.me/2016/01/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">https://felix.seidel.me/2016/01/18/welcome-to-jekyll.html</guid>
+        
+        
+      </item>
     
   </channel>
 </rss>
