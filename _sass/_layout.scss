@@ -6,10 +6,14 @@
 .site-title {
     font-size: 26px;
     font-weight: 300;
-    line-height: 113px;
+    line-height: 60px;
     letter-spacing: -1px;
     margin-bottom: 0;
     text-align: center;
+
+    @include media-query($size-md) {
+      line-height: 113px;
+    }
 
     a,
     a:visited {
@@ -26,9 +30,13 @@
 }
 
 .site-nav {
-    line-height: 100px;
+    line-height: 50px;
     margin-bottom: 0;
     text-align: center;
+
+    @include media-query($size-md) {
+      line-height: 100px;
+    }
 
     a.pure-menu-link,
     a.pure-menu-link:hover,
@@ -56,6 +64,14 @@
     a:hover,
     a.pure-menu-link:visited {
       color: $brand-color-dark;
+    }
+
+    .site-footer-spacing {
+      margin-bottom: 15px;
+
+      @include media-query($size-md) {
+        margin-bottom: inherit;
+      }
     }
 }
 
