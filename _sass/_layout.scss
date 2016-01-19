@@ -1,7 +1,6 @@
 .site-header {
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
-  min-height: 100px;
 }
 
 .site-title {
@@ -12,9 +11,13 @@
     margin-bottom: 0;
     text-align: center;
 
-    &,
-    &:visited {
-        color: $grey-color-dark;
+    a,
+    a:visited {
+      color: $brand-color-dark;
+    }
+
+    a:hover {
+      text-decoration: none;
     }
 
     @include media-query($size-md) {
@@ -27,7 +30,14 @@
     margin-bottom: 0;
     text-align: center;
 
-    .pure-menu-link-active {
+    a.pure-menu-link,
+    a.pure-menu-link:hover,
+    a.pure-menu-link:visited {
+      color: $brand-color-dark;
+      text-decoration: none;
+    }
+
+    a.pure-menu-link-active {
       font-weight: bold;
     }
 }
@@ -39,6 +49,14 @@
 .site-footer {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+
+    color: $grey-color;
+
+    a,
+    a:hover,
+    a.pure-menu-link:visited {
+      color: $brand-color-dark;
+    }
 }
 
 .site-footer-notes {
