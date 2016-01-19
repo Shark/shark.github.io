@@ -56,6 +56,7 @@ module.exports = (grunt) ->
           "assets/**/*"
           "_config.yml"
           "*.html"
+          "*.haml"
           "*.md"
         ]
         tasks: [

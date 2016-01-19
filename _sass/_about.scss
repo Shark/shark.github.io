@@ -1,0 +1,13 @@
+.about {
+  .column:last-child {
+    padding: 10px 0;
+  }
+
+  @include media-query($size-md) {
+    .column:last-child {
+      padding: 0 0 0 10px;
+    }
+  }
+
+  .portrait { text-align: center }
+}

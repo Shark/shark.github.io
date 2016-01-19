@@ -6,6 +6,12 @@ html, body, button, input, select, textarea,
   font-family: $base-font-family;
 }
 
+.pure-g > div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
