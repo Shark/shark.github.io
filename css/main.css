@@ -85,7 +85,7 @@ pre {
   clear: both; }
 
 .site-header {
-  border-top: 5px solid #424242;
+  border-top: 5px solid #377A00;
   border-bottom: 1px solid #e8e8e8; }
 
 .site-title {
@@ -113,7 +113,8 @@ pre {
   text-align: center; }
   @media screen and (min-width: 768px) {
     .site-nav {
-      line-height: 100px; } }
+      line-height: 100px;
+      text-align: right; } }
   .site-nav a.pure-menu-link,
   .site-nav a.pure-menu-link:hover,
   .site-nav a.pure-menu-link:visited {
@@ -138,6 +139,12 @@ pre {
     @media screen and (min-width: 768px) {
       .site-footer .site-footer-spacing {
         margin-bottom: inherit; } }
+  @media screen and (min-width: 768px) {
+    .site-footer .site-footer-nav {
+      text-align: right; } }
+  .site-footer .site-footer-nav a:not(:last-child) {
+    display: inline-block;
+    margin-right: 7.5px; }
 
 .site-footer-notes {
   margin-top: 15px; }
