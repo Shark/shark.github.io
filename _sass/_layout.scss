@@ -1,5 +1,5 @@
 .site-header {
-  border-top: 5px solid $grey-color-dark;
+  border-top: 5px solid $brand-color-dark;
   border-bottom: 1px solid $grey-color-light;
 }
 
@@ -36,6 +36,7 @@
 
     @include media-query($size-md) {
       line-height: 100px;
+      text-align: right;
     }
 
     a.pure-menu-link,
@@ -71,6 +72,17 @@
 
       @include media-query($size-md) {
         margin-bottom: inherit;
+      }
+    }
+
+    .site-footer-nav {
+      @include media-query($size-md) {
+        text-align: right;
+      }
+
+      a:not(:last-child) {
+        display: inline-block;
+        margin-right: $spacing-unit / 4;
       }
     }
 }
