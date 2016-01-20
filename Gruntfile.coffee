@@ -8,6 +8,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-exec"
+  grunt.loadNpmTasks "grunt-cache-bust"
+  grunt.loadNpmTasks "grunt-contrib-cssmin"
 
   grunt.initConfig
 
@@ -33,6 +35,29 @@ module.exports = (grunt) ->
           cwd: "bower_components/Ionicons/fonts"
           src: "*"
           dest: "vendor/fonts/"
+        }]
+
+    cssmin:
+      options:
+        report: 'gzip'
+      target:
+        files: [{
+          expand: true
+          cwd: '_site/css'
+          src: ['*.css', '!*.min.css']
+          dest: '_site/css'
+          ext: '.css'
+        }]
+
+    cacheBust:
+      options:
+        deleteOriginals: true
+      assets:
+        files: [{
+          expand: true
+          src: ['**/*.html']
+          cwd: '_site/'
+          baseDir: '_site/'
         }]
 
     exec:
@@ -75,8 +100,20 @@ module.exports = (grunt) ->
     "exec:jekyll"
   ]
 
+  grunt.registerTask "prod", [
+    "build"
+    "cssmin"
+    "cacheBust"
+  ]
+
   grunt.registerTask "serve", [
     "build"
+    "connect:server"
+    "watch"
+  ]
+
+  grunt.registerTask "serveProd", [
+    "prod"
     "connect:server"
     "watch"
   ]
