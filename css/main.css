@@ -162,6 +162,10 @@ pre {
   list-style: none;
   margin: 0;
   padding-left: 10px; }
+  .social-media-list .icon-container {
+    display: inline-block;
+    width: 20px;
+    text-align: center; }
 
 /**
  * Syntax highlighting styles
