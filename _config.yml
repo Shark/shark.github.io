@@ -30,6 +30,7 @@ include:
   - _static
   - _pages
   - assets
+  - .well-known
 exclude:
   - node_modules
   - bower_components
