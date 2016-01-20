@@ -1,0 +1,66 @@
+==================================================================
+https://keybase.io/sh4rk
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://felix.seidel.me
+  * I am sh4rk (https://keybase.io/sh4rk) on keybase.
+  * I have a public key with fingerprint 6405 9D13 13DC 6478 040E  1057 C63F D4E0 F60E 71A0
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "64059d1313dc6478040e1057c63fd4e0f60e71a0",
+            "host": "keybase.io",
+            "key_id": "c63fd4e0f60e71a0",
+            "kid": "0101327564099568c5ab41e33bc39a029e12d86595278b24eb8122726d884ed9f2b30a",
+            "uid": "eb927dc5eaa67285eebd1b6049bde119",
+            "username": "sh4rk"
+        },
+        "service": {
+            "hostname": "felix.seidel.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1426286613,
+    "expire_in": 157680000,
+    "prev": "d610015087bcb54855a0b5c357c7eda9d4c7f0c249c3af9d976bcaa8bd0c0866",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtUltIVEEY3rVya8vyBksYlidqU2SbOZc556zQhS2iCxVFiKBtZ87Mrmfd9uzl
+aJluEZFdtDAfejC7k4QlRNlTkb4UpdSTCF3ohlFGJEpFhUZzxN6al2G+//u/b76f
+vzVrhiPD+Wj14Nsf8xOXnAMj2LFrRnVBA4dNUs/5G7gaOnWFjFiYJuNJI2Zxfg6J
+QFIJFKBAdCTKChABhUCSdSSEiEhBCAEqQw1wpVy1mbI7mAzWUtRnmAxjj6BBGPof
+fs1UAUAABV6WmJGqSkjRJQ2LkAoC1gVVA7xKIU8UJKkSLyuYFylWIM/LPCKKIlKi
+hngsAI3J1U7JUazyMtElqmlI5hWJUkwgRkBUMaEQqjYxRZMxbS9l7FS1mKzh0qUc
+g+oMndr57RjT5RCNGvt9KWoQGvUxpJSLJ03L1M0oK1ZbVjzlt5ut+rjN3kdxcFon
+iI0YYXNkHXU0mTLMGOeHjKlbhi0MRR7xCkJQKOXo/riRpEHDZkgyUgA7tg+tY5IE
+QQCgBBQZ61gSFUnSAJZ0gc1fpkRTiajLIaDzoqoLWkglqoywrmkKJkAHzICzkyVi
+JucX2Te1sB3ZCMc0qzZJuYy0+4Rz0UyHM8OROSvD3gWHe072vwVp63T9KfGMoePG
+XMfipvWrE64t7YHrq+51Lk9nVzSWbAiUeCZb13QFih9sO7VoYN3ucxfx7A8j/d7v
+vt/jLYeH+lrLH3U3Xs37ecQzhiOvhttrOuGaAKJrz1Tyn4Zawgvi37qurk2ELxQ3
+3e5ePD787svdl1lNz0cf5xZ99JGb9cWBY+Urj8pkXiTSe+tn7/3RJQPRfu/ZgxOe
+wraO3JwnCy8WRcie9I7M/MEDOeev9eR+KXTtbLbc+S9u0IpjJ7c7vy7pb+FCPbNX
+nN4YuRNrfo3cfZOV3oLPZRPZlr616npH/deO4+efesXN9x8Hyb7Gh5eXuqqyNr3P
+e+Mtyyk89GvZsyvxvw==
+=YK08
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sh4rk
+
+==================================================================
