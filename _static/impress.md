@@ -9,8 +9,8 @@ footer_nav: true
 Information in accordance with section 5 TMG:
 
 Felix Seidel  
-Dieckmannstr. 110  
-48161 Münster  
+Salzstr. 45
+48143 Münster
 Germany
 
 ## Contact
@@ -23,8 +23,8 @@ Internet Address: [felix.seidel.me](http://felix.seidel.me)
 ## Person responsible for content in accordance with §55 Abs. 2 RStV
 
 Felix Seidel  
-Dieckmannstr. 110  
-48161 Münster  
+Salzstr. 45
+48143 Münster  
 Germany
 
 ## Disclaimer
