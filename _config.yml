@@ -41,3 +41,6 @@ exclude:
   - Gemfile
   - .ruby-gemset
   - .ruby-version
+  - deploy.sh
+  - docker_compose.yml
+  - Dockerfile
