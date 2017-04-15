@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How to use dmenu with i3 for project workspaces &ndash; Felix Seidel</title>
+  <meta name="description" content="I recently switched from a 2015 Macbook Pro to a 2016 Lenovo ThinkPad X1 Carbon. My setup consists of Arch Linux with the awesome tiling window manager i3. A...">
+
+  <link rel="stylesheet" href="/vendor/css/pure-min.ee23fe600cc83ea6.css">
+  <link rel="stylesheet" href="/vendor/css/grids-responsive-min.8195ec407c08b801.css">
+  <link rel="stylesheet" href="/vendor/css/ionicons.min.0d6763b67616cb91.css">
+  <link rel="stylesheet" href="/css/main.599034999d4c45d4.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link rel="canonical" href="https://felix.seidel.me/2017/04/15/dmenu-i3.html">
+  <link rel="alternate" type="application/rss+xml" title="Felix Seidel" href="https://felix.seidel.me/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class='site-header'>
+  <div class='wrapper pure-g'>
+    <div class='pure-u-1 pure-u-md-2-5 site-title'>
+      <a href='/'>
+        Felix Seidel
+      </a>
+    </div>
+    <div class='pure-u-1 pure-u-md-3-5 pure-menu pure-menu-horizontal site-nav'>
+      <ul class='pure-menu-list'>
+        
+
+  
+
+  
+
+  
+
+  
+    <li class="pure-menu-item">
+      
+        <a class="pure-menu-link" href="/about/">About</a>
+      
+    </li>
+  
+
+  
+
+  
+
+  
+    <li class="pure-menu-item">
+      
+        <a class="pure-menu-link" href="/resume/">Resume</a>
+      
+    </li>
+  
+
+
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">How to use dmenu with i3 for project workspaces</h1>
+    <p class="post-meta"><time datetime="2017-04-15T18:17:00+02:00" itemprop="datePublished">Apr 15, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I recently switched from a <a href="https://www.apple.com/de/macbook-pro/specs-2015/">2015 Macbook Pro</a> to a <a href="http://www.laptopmag.com/reviews/laptops/lenovo-thinkpad-x1-carbon">2016 Lenovo ThinkPad X1 Carbon</a>. My setup consists of <a href="https://www.archlinux.org/">Arch Linux</a> with the awesome tiling window manager <a href="https://i3wm.org/">i3</a>. As a web developer I need to quickly switch between projects as part of my daily workflow. I’ve built a small script that allows me to select a project and open my editor along with a terminal in an i3 workspace.</p>
+
+<!--more-->
+<p>See the GIF below for a demonstration. Awesome!</p>
+
+<p><img src="/assets/posts/2017-04-15-dmenu-i3/demo.dca79de8db3c7bdd.gif" alt="dmenu with i3 for project workspaces screencast demo" style="width:100%" /></p>
+
+<p>Let me show you how it works.</p>
+
+<p>First, there’s <code class="highlighter-rouge">dmenu_git</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">set</span> -euo pipefail
+
+main<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">local </span>repos workspace_number current_workspace_name new_workspace_name
+  <span class="nv">repos</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>find ~/git -name .git -type d -prune | xargs dirname<span class="k">)</span><span class="s2">"</span>
+  <span class="nv">chosen</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>dmenu <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="nv">$repos</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
+
+  <span class="k">if</span> <span class="o">[[</span> -n <span class="nv">$chosen</span> <span class="o">]]</span>; <span class="k">then
+    </span><span class="nv">current_workspace_name</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>i3-msg -t get_workspaces | jq -r <span class="s1">'.[] | select(.focused==true) | .name'</span><span class="k">)</span><span class="s2">"</span>
+    <span class="nv">workspace_number</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>i3-msg -t get_workspaces | jq -r <span class="s1">'.[] | select(.focused==true) | .num'</span><span class="k">)</span><span class="s2">"</span>
+    <span class="nv">new_workspace_name</span><span class="o">=</span><span class="s2">"</span><span class="nv">$workspace_number</span><span class="s2">: </span><span class="k">$(</span>basename <span class="s2">"</span><span class="nv">$chosen</span><span class="s2">"</span><span class="k">)</span><span class="s2">"</span>
+    i3-msg <span class="s2">"layout splitv; append_layout ~/git/dotfiles/.config/i3/layout-atom.json; rename workspace </span><span class="se">\"</span><span class="nv">$current_workspace_name</span><span class="se">\"</span><span class="s2"> to </span><span class="se">\"</span><span class="nv">$new_workspace_name</span><span class="se">\"</span><span class="s2">"</span>
+    atom <span class="s2">"</span><span class="nv">$chosen</span><span class="s2">"</span>
+    <span class="nb">cd</span> <span class="s2">"</span><span class="nv">$chosen</span><span class="s2">"</span>
+    i3-sensible-terminal
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+main <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span></code></pre></figure>
+
+<p>First, the script finds all existing git repositories. Then, <code class="highlighter-rouge">dmenu</code> is given the list to allow the user to pick one. If the user did so, we get the name and number of the current workspace and invoke <code class="highlighter-rouge">i3-msg</code> to set the layout, load a JSON-encoded description of the layout and rename the workspace. i3 will pre-populate the workspace with dummy containers. They are filled by simply executing the appropriate programs.</p>
+
+<p>Saving a layout is done with the <code class="highlighter-rouge">i3-save-tree</code> command. You can restore a layout with the <code class="highlighter-rouge">append_layout &lt;path&gt;</code> command. Learn more about saving and restoring layouts in <a href="https://i3wm.org/docs/layout-saving.html">the i3 docs</a>. Make sure to read the section about editing the output of <code class="highlighter-rouge">i3-save-tree</code> carefully because you will need to edit the JSON file manually.</p>
+
+<p>Put <code class="highlighter-rouge">dmenu_git</code> anywhere in your <code class="highlighter-rouge">$PATH</code> (e.g. <code class="highlighter-rouge">/usr/local/bin</code>, or <code class="highlighter-rouge">~/bin</code>). Next, add the following to your i3 config (<code class="highlighter-rouge">~/.config/i3/config</code>):</p>
+
+<figure class="highlight"><pre><code class="language-none" data-lang="none">bindsym $mod+Shift+d exec dmenu_git</code></pre></figure>
+
+<p>Reload the i3 config and press <code class="highlighter-rouge">$mod+Shift+d</code>. Done!</p>
+
+<p><em>Pro Tip 1</em>: If you like this kind of integration and you also use the awesome Standard Unix Password Manager <a href="https://www.passwordstore.org/">pass</a>, have a look at the <a href="https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu">passmenu</a> script.</p>
+
+<p><em>Pro Tip 2</em> (for Arch Linux users): If you get the following error when running <code class="highlighter-rouge">i3-save-tree</code>, install the optional <a href="https://www.archlinux.org/packages/community/any/perl-anyevent-i3/"><code class="highlighter-rouge">perl-anyevent-i3</code></a> package.</p>
+
+<figure class="highlight"><pre><code class="language-none" data-lang="none">$ i3-save-tree
+Can't locate AnyEvent/I3.pm in @INC (you may need to install the AnyEvent::I3 module) (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/bin/i3-save-tree line 19.
+BEGIN failed--compilation aborted at /usr/bin/i3-save-tree line 19.</code></pre></figure>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class='site-footer'>
+  <div class='wrapper'>
+    <div class='pure-g'>
+      <div class='pure-u-1 pure-u-md-1-3 site-footer-spacing'>
+        <span>
+          Thanks for visiting my portfolio! If you want to get in touch, drop
+          an email to
+        </span>
+        <a href='mailto:hello.felix@seidel.me'>
+          hello.felix@seidel.me
+        </a>
+        <span>
+          or send me a message on the following platforms:
+        </span>
+      </div>
+      <div class='pure-u-1 pure-u-md-1-3 site-footer-spacing'>
+        <ul class='social-media-list'>
+          <li>
+            <div class='icon-container'>
+              <i class='icon ion-social-github'></i>
+            </div>
+            <a href='https://www.github.com/Shark' target='_new'>
+              Shark
+            </a>
+          </li>
+          <li>
+            <div class='icon-container'>
+              <i class='icon ion-social-twitter'></i>
+            </div>
+            <a href='https://www.twitter.com/sh4rk' target='_new'>
+              sh4rk
+            </a>
+          </li>
+          <li>
+            <div class='icon-container'>
+              <i class='icon ion-social-skype'></i>
+            </div>
+            <span>
+              theblueshark2005
+            </span>
+          </li>
+          <li>
+            <div class='icon-container'>
+              <i class='icon ion-cash'></i>
+            </div>
+            <a href='https://www.xing.com/profile/Felix_Seidel5' target='_new'>
+              XING profile
+            </a>
+          </li>
+          <li>
+            <div class='icon-container'>
+              <i class='icon ion-key'></i>
+            </div>
+            <span>
+              <a href='https://keybase.io/sh4rk' target='_new'>
+                Keybase profile
+              </a>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class='pure-u-1 pure-u-md-1-3'>
+        <div class='site-footer-nav'>
+          
+
+  
+
+  
+    <a class="page-link" href="/privacy/">Privacy Statement</a>
+  
+
+  
+    <a class="page-link" href="/impress/">Impress</a>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+        </div>
+      </div>
+    </div>
+    <div class='site-footer-notes'>
+      <div class='pure-g'>
+        <div class='pure-u-4-5'>
+          <small>
+            <p>Proudly powered by <a href="https://pages.github.com">Github Pages</a> and <a href="https://jekyllrb.com">Jekyll</a>.
+            The source code is available at <a href="https://github.com/Shark/shark.github.io/tree/source">my Github repo</a>.</p>
+          </small>
+        </div>
+        <div class='pure-u-1-5 license'>
+          <a href='https://creativecommons.org/licenses/by/2.0/de/' target='_new'>
+            <img src='/assets/cc-by.6c4f8422b3725cb9.svg'>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-43124578-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+
+</html>
