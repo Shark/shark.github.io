@@ -1,24 +1,39 @@
 ---
 layout: default
+last_modified_at: 2017-04-15 21:32:00 +0200
 ---
 
 <div class="home">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-md-1-2 column">
-      <h1>Welcome!</h1><br/>
-      I'm Felix Seidel, a {% age %}-year-old student and web developer currently living in Münster, Germany. I recently finished my studies on <a href="https://www.wi.uni-muenster.de" target="_new">Information Systems</a> at the University of Münster. I work as a Software Engineer at the Web Development and Consultancy company <a href="https://www.zweitag.de/de" target="_new">Zweitag</a>. In my free time, I attend meetups and try to automate my home as much as possible. <a href="/about">Read more</a>.
+  <main>
+    <h1>Welcome!</h1>
+    <div class="pure-g intro">
+      <div class="pure-u-4-5">
+        I'm Felix Seidel, a {% age %}-year-old student and web developer currently living in Münster, Germany. I recently finished my studies on <a href="https://www.wi.uni-muenster.de" target="_new">Information Systems</a> at the University of Münster. I work as a Software Engineer at the Web Development and Consultancy company <a href="https://www.zweitag.de/de" target="_new">Zweitag</a>. In my free time, I attend meetups and try to automate my home as much as possible. <a href="/about">Read more</a>.
+      </div>
+      <div class="pure-u-1-5">
+        <img src="/assets/portrait-circle.png" style="width: 100%"/>
+      </div>
     </div>
-    <div class="pure-u-1 pure-u-md-1-2 column">
-      <h1>Latest Posts</h1>
-      <span class="subscribe"><a href="{{ "/feed.xml" | prepend: site.baseurl }}"><i class="icon ion-social-rss"></i> subscribe</a></span>
-      <br/>
-      <ul class="post-list">
-        {% for post in site.posts %}
-          <li>
-          {{ post.date | date: "%b %-d, %Y" }}: <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+  </main>
+  <h1>
+    Latest Posts
+    <span class="subscribe"><a href="{{ "/feed.xml" | prepend: site.baseurl }}"><i class="icon ion-social-rss"></i> subscribe</a></span>
+  </h1>
+  <div>
+    {% for post in site.posts %}
+      <article>
+        <header>
+          <h2 class="post-link">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            &nbsp;
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          </h2>
+        </header>
+
+        <section>
+          {{ post.excerpt | remove: '<p>' | remove: '</p>' }}<a href="{{ post.url | prepend: site.baseurl }}">Read more.</a>
+        </section>
+      </article>
+    {% endfor %}
   </div>
 </div>
