@@ -4,6 +4,8 @@ title: Privacy Statement
 permalink: /privacy/
 header_nav: false
 footer_nav: true
+sitemap: false
+robots: noindex
 ---
 
 ## General

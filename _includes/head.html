@@ -5,6 +5,7 @@
 
   <title>{% if page.title %}{{ page.title }} &ndash; {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.robots %}<meta name="robots" content="{{ page.robots }}">{% endif %}
 
   <link rel="stylesheet" href="/vendor/css/pure-min.css">
   <link rel="stylesheet" href="/vendor/css/grids-responsive-min.css">

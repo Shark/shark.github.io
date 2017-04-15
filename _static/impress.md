@@ -4,6 +4,8 @@ title: Impress
 permalink: /impress/
 header_nav: false
 footer_nav: true
+sitemap: false
+robots: noindex
 ---
 
 Information in accordance with section 5 TMG:
