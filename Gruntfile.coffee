@@ -66,7 +66,7 @@ module.exports = (grunt) ->
 
     watch:
       options:
-        livereload: true
+        livereload: 4001
       source:
         files: [
           "_drafts/**/*"
@@ -93,7 +93,7 @@ module.exports = (grunt) ->
         options:
           port: 4000
           base: '_site'
-          livereload: true
+          livereload: 4001
 
   grunt.registerTask "build", [
     "copy"

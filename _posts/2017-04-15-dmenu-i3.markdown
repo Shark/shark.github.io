@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "How to use dmenu with i3 for project workspaces"
+date:   2017-04-15 18:17:00 +0200
+excerpt_separator: <!--more-->
+---
+I recently switched from a [2015 Macbook Pro](https://www.apple.com/de/macbook-pro/specs-2015/) to a [2016 Lenovo ThinkPad X1 Carbon](http://www.laptopmag.com/reviews/laptops/lenovo-thinkpad-x1-carbon). My setup consists of [Arch Linux](https://www.archlinux.org/) with the awesome tiling window manager [i3](https://i3wm.org/). As a web developer I need to quickly switch between projects as part of my daily workflow. I've built a small script that allows me to select a project and open my editor along with a terminal in an i3 workspace.
+
+<!--more-->
+See the GIF below for a demonstration. Awesome!
+
+<img src="/assets/posts/2017-04-15-dmenu-i3/demo.gif" alt="dmenu with i3 for project workspaces screencast demo" style="width:100%"/>
+
+Let me show you how it works.
+
+First, there's `dmenu_git`:
+{% highlight bash %}
+#!/usr/bin/env bash
+set -euo pipefail
+
+main() {
+  local repos workspace_number current_workspace_name new_workspace_name
+  repos="$(find ~/git -name .git -type d -prune | xargs dirname)"
+  chosen="$(dmenu <<< "$repos")"
+
+  if [[ -n $chosen ]]; then
+    current_workspace_name="$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .name')"
+    workspace_number="$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true) | .num')"
+    new_workspace_name="$workspace_number: $(basename "$chosen")"
+    i3-msg "layout splitv; append_layout ~/git/dotfiles/.config/i3/layout-atom.json; rename workspace \"$current_workspace_name\" to \"$new_workspace_name\""
+    atom "$chosen"
+    cd "$chosen"
+    i3-sensible-terminal
+  fi
+}
+
+main "$@"
+{% endhighlight %}
+
+First, the script finds all existing git repositories. Then, `dmenu` is given the list to allow the user to pick one. If the user did so, we get the name and number of the current workspace and invoke `i3-msg` to set the layout, load a JSON-encoded description of the layout and rename the workspace. i3 will pre-populate the workspace with dummy containers. They are filled by simply executing the appropriate programs.
+
+Saving a layout is done with the `i3-save-tree` command. You can restore a layout with the `append_layout <path>` command. Learn more about saving and restoring layouts in [the i3 docs](https://i3wm.org/docs/layout-saving.html). Make sure to read the section about editing the output of `i3-save-tree` carefully because you will need to edit the JSON file manually.
+
+Put `dmenu_git` anywhere in your `$PATH` (e.g. `/usr/local/bin`, or `~/bin`). Next, add the following to your i3 config (`~/.config/i3/config`):
+
+{% highlight none %}
+bindsym $mod+Shift+d exec dmenu_git
+{% endhighlight %}
+
+Reload the i3 config and press `$mod+Shift+d`. Done!
+
+*Pro Tip 1*: If you like this kind of integration and you also use the awesome Standard Unix Password Manager [pass](https://www.passwordstore.org/), have a look at the [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu) script.
+
+*Pro Tip 2* (for Arch Linux users): If you get the following error when running `i3-save-tree`, install the optional [`perl-anyevent-i3`](https://www.archlinux.org/packages/community/any/perl-anyevent-i3/) package.
+
+{% highlight none %}
+$ i3-save-tree
+Can't locate AnyEvent/I3.pm in @INC (you may need to install the AnyEvent::I3 module) (@INC contains: /usr/lib/perl5/site_perl /usr/share/perl5/site_perl /usr/lib/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib/perl5/core_perl /usr/share/perl5/core_perl .) at /usr/bin/i3-save-tree line 19.
+BEGIN failed--compilation aborted at /usr/bin/i3-save-tree line 19.
+{% endhighlight %}
