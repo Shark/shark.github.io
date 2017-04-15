@@ -9,7 +9,8 @@ main() {
     exit 1
   fi
 
-  docker-compose run app grunt prod
+  docker-compose build prod
+  docker-compose run prod grunt prod
   cd "$DIR/_site"
   git add -A
   git commit -m "Site updated at $(date -Iseconds)"
