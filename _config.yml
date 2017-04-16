@@ -26,11 +26,9 @@ defaults:
 markdown: kramdown
 include:
   - .nojekyll
-  - CNAME
-  - _static
-  - _pages
-  - assets
   - .well-known
+  - _pages
+  - _static
 exclude:
   - node_modules
   - bower_components
@@ -42,8 +40,9 @@ exclude:
   - .ruby-gemset
   - .ruby-version
   - deploy.sh
-  - docker_compose.yml
+  - docker-compose.yml
   - Dockerfile
+  - README.md
 
 gems:
   - jekyll-sitemap

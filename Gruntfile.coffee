@@ -52,6 +52,8 @@ module.exports = (grunt) ->
     cacheBust:
       options:
         deleteOriginals: true
+        assets: ['assets/**/*', 'css/**/*']
+        baseDir: './_site/'
       assets:
         files: [{
           expand: true
