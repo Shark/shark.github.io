@@ -30,6 +30,10 @@
     page-break-inside: avoid;
   }
 
+  .resume-break {
+    page-break-after: always;
+  }
+
   .resume-section-title {
     width: 20% !important;
     font-size: 10pt !important;
