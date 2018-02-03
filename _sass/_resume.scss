@@ -21,8 +21,14 @@
     font-size: 14pt;
   }
 
-  .cols-content {
-    font-size: 10pt;
+  .resume-column {
+    &:not(:last-child) {
+      padding-right: $spacing-unit;
+    }
+
+    .description {
+      font-size: 10pt;
+    }
   }
 
   .work-unit {
