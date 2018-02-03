@@ -11,8 +11,8 @@ main() {
 
   #docker-compose build app
   docker-compose up -d app
-  docker-compose exec app bin/build-resume.js
   docker-compose run prod grunt prod
+  docker-compose exec app bin/build-resume.js
   cd "$DIR/../_site"
   git add -A
   git commit --no-verify -m "Site updated at $(date -Iseconds)"
