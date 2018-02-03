@@ -9,7 +9,7 @@ RUN apt-get update && \
     wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
     echo 'deb https://deb.nodesource.com/node_7.x jessie main' > /etc/apt/sources.list.d/nodesource.list && \
     apt-get update && \
-    apt-get -y --no-install-recommends install nodejs && \
+    apt-get -y install nodejs libatk-bridge2.0-0 libgtk-3-0 libx11-xcb1 libnss3 libxss1 libasound2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /usr/src/app/bower_components && \

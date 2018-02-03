@@ -9,7 +9,9 @@ main() {
     exit 1
   fi
 
-  docker-compose build prod
+  docker-compose build app
+  docker-compose up -d app
+  docker-compose exec app ./build-resume.js
   docker-compose run prod grunt prod
   cd "$DIR/_site"
   git add -A

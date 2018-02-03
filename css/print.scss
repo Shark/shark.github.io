@@ -2,15 +2,8 @@
 ---
 
 @media print {
-  html {
-    transform: scale(1.0);
-  }
-
-  .wrapper {
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
+  body {
+    padding: 2em;
   }
 
   header.site-header {
@@ -26,6 +19,10 @@
   }
 
   i.icon.ion-link {
+    display: none;
+  }
+
+  .resume-download {
     display: none;
   }
 

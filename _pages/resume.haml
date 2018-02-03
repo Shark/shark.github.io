@@ -1,169 +1,177 @@
 ---
-layout: page
+layout: default
 title: Resume
 permalink: /resume/
 last_modified_at: 2017-04-15 21:32:00 +0200
 ---
+%article.post
+  %header.post-header
+    %h1.post-title
+      %span {{ page.title }}
+      .resume-download
+        %a{href: '{{ "/resume.pdf" | absolute_url }}'}
+          %i.icon.ion-ios-download-outline
+          PDF
+  .post-content
+    .resume
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Profile
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          Hey, I'm Felix. I strive to create great software and develop reliable computer systems. I try hard to develop my skills further and love to collaborate with my fellow people. I dislike legacy and prefer to work on the shiny new thing &ndash; but I acknowledge that legacy and the hot stuff is the same thing a few years apart. I like to meet new people and their mindsets. I like to express my opinion honestly and to engage in discussions with my fellow colleagues and friends.
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Skills
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          .pure-g
+            .pure-u-1-2.resume-column
+              Web Development
+              .description
+                I develop web applications using <a href="http://www.rubyonrails.org" target="_new">Ruby on Rails <i class="icon ion-link"></i></a> and <a href="http://expressjs.com" target="_new">Express <i class="icon ion-link"></i></a> using front-end frameworks such as <a href="https://angularjs.org/" target="_new">AngularJS <i class="icon ion-link"></i></a> and <a href="http://emberjs.com" target="_new">Ember.js <i class="icon ion-link"></i></a>.
+            .pure-u-1-2.resume-column
+              Systems Engineering
+              .description
+                I create reliable and fault-tolerant software systems leveraging idioms such as Infrastructure as Code and state-of-the-art Service Discovery and Configuration.
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Working Experience
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          .work-unit
+            .work-unit-timespan since 04/2016
+            %a{href: 'https://www.zweitag.de', target: '_new'}
+              Zweitag
+              %i.icon.ion-link
+            .work-unit-job-title Software Engineer
+          .work-unit
+            .work-unit-timespan 03/2015 &ndash; 03/2016
+            %a{href: 'https://www.zweitag.de', target: '_new'}
+              Zweitag
+              %i.icon.ion-link
+            .work-unit-job-title Junior Software Engineer
+            .work-unit-job-description
+              Developed Ruby on Rails web applications, built and deployed robust software systems. Learned much about the practical side of Software Engineering.
+          .work-unit
+            .work-unit-timespan 05/2014 &ndash; 04/2015
+            University of Münster
+            %br
+            %a{href: 'http://www.wi.uni-muenster.de', target: '_new'}
+              Department of Information Systems
+              %i.icon.ion-link
+            .work-unit-job-title Student Assistant
+            .work-unit-job-description
+              Assisted the faculty staff with literature search, classification and
+              summarization. Developed a mobile Android application for the visualization
+              of Business Process Models (BPMN). Continued developing the app as a
+              participant of a project seminar on a similar topic.
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Technologies
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column.technologies
+          %ul.plain-list
+            %li
+              .skill-level Working Knowledge:
+              .technology
+                %a{href: 'http://www.rubyonrails.org', target: '_new'}
+                  Ruby on Rails
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://www.ruby-lang.org', target: '_new'}
+                  Ruby
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://golang.org', target: '_new'}
+                  Go
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://nodejs.org', target: '_new'}
+                  Node.js
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://git-scm.com', target: '_new'}
+                  Git
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'http://expressjs.com', target: '_new'}
+                  Express
+                  %i.icon.ion-link
+              .technology
+                Linux server administration
+            %li
+              .skill-level Basic Knowledge:
+              .technology
+                %a{href: 'https://angularjs.org', target: '_new'}
+                AngularJS
+                %i.icon.ion-link
+              .technology
+                %a{href: 'http://emberjs.com', target: '_new'}
+                Ember.js
+                %i.icon.ion-link
+              .technology
+                %a{href: 'https://www.java.com', target: '_new'}
+                  Java
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://php.net', target: '_new'}
+                  PHP
+                  %i.icon.ion-link
+              .technology
+                SQL
+              .technology
+                %a{href: 'https://developer.android.com', target: '_new'}
+                  Android app development
+                  %i.icon.ion-link
+              .technology
+                %a{href: 'https://developer.apple.com', target: '_new'}
+                  iOS and OS X app development
+                  %i.icon.ion-link
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Academic Education
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          .education-unit
+            .education-unit-timespan 10/2012 &ndash; 03/2016
+            %a{href: 'https://www.wi.uni-muenster.de/prospective-students/bachelor', target: '_new'}
+              Information Systems (BSc)
+              %i.icon.ion-link
+            .education-unit-extra
+              Westfälische Wilhelms-Universität Münster
+              %br
+              Final Grade: &#216; 1.7
+            .education-unit-description
+              :markdown
+                Bachelor Thesis: Implementing Highly Available And Robust Microservices Using An Logistics Example
 
-.resume
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Profile
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      Hey, I'm Felix. I strive to create great software and develop reliable computer systems. I try hard to develop my skills further and love to collaborate with my fellow people. I dislike legacy and prefer to work on the shiny new thing &ndash; but I acknowledge that legacy and the hot stuff is the same thing a few years apart. I like to meet new people and their mindsets. I like to express my opinion honestly and to engage in discussions with my fellow colleagues and friends.
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Skills
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      .pure-g
-        .pure-u-1-2.resume-column
-          Web Development
-          .description
-            I develop web applications using <a href="http://www.rubyonrails.org" target="_new">Ruby on Rails <i class="icon ion-link"></i></a> and <a href="http://expressjs.com" target="_new">Express <i class="icon ion-link"></i></a> using front-end frameworks such as <a href="https://angularjs.org/" target="_new">AngularJS <i class="icon ion-link"></i></a> and <a href="http://emberjs.com" target="_new">Ember.js <i class="icon ion-link"></i></a>.
-        .pure-u-1-2.resume-column
-          Systems Engineering
-          .description
-            I create reliable and fault-tolerant software systems leveraging idioms such as Infrastructure as Code and state-of-the-art Service Discovery and Configuration.
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Working Experience
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      .work-unit
-        .work-unit-timespan since 04/2016
-        %a{href: 'https://www.zweitag.de', target: '_new'}
-          Zweitag
-          %i.icon.ion-link
-        .work-unit-job-title Software Engineer
-      .work-unit
-        .work-unit-timespan 03/2015 &ndash; 03/2016
-        %a{href: 'https://www.zweitag.de', target: '_new'}
-          Zweitag
-          %i.icon.ion-link
-        .work-unit-job-title Junior Software Engineer
-        .work-unit-job-description
-          Developed Ruby on Rails web applications, built and deployed robust software systems. Learned much about the practical side of Software Engineering.
-      .work-unit
-        .work-unit-timespan 05/2014 &ndash; 04/2015
-        University of Münster
-        %br
-        %a{href: 'http://www.wi.uni-muenster.de', target: '_new'}
-          Department of Information Systems
-          %i.icon.ion-link
-        .work-unit-job-title Student Assistant
-        .work-unit-job-description
-          Assisted the faculty staff with literature search, classification and
-          summarization. Developed a mobile Android application for the visualization
-          of Business Process Models (BPMN). Continued developing the app as a
-          participant of a project seminar on a similar topic.
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Technologies
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column.technologies
-      %ul.plain-list
-        %li
-          .skill-level Working Knowledge:
-          .technology
-            %a{href: 'http://www.rubyonrails.org', target: '_new'}
-              Ruby on Rails
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://www.ruby-lang.org', target: '_new'}
-              Ruby
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://golang.org', target: '_new'}
-              Go
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://nodejs.org', target: '_new'}
-              Node.js
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://git-scm.com', target: '_new'}
-              Git
-              %i.icon.ion-link
-          .technology
-            %a{href: 'http://expressjs.com', target: '_new'}
-              Express
-              %i.icon.ion-link
-          .technology
-            Linux server administration
-        %li
-          .skill-level Basic Knowledge:
-          .technology
-            %a{href: 'https://angularjs.org', target: '_new'}
-            AngularJS
-            %i.icon.ion-link
-          .technology
-            %a{href: 'http://emberjs.com', target: '_new'}
-            Ember.js
-            %i.icon.ion-link
-          .technology
-            %a{href: 'https://www.java.com', target: '_new'}
-              Java
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://php.net', target: '_new'}
-              PHP
-              %i.icon.ion-link
-          .technology
-            SQL
-          .technology
-            %a{href: 'https://developer.android.com', target: '_new'}
-              Android app development
-              %i.icon.ion-link
-          .technology
-            %a{href: 'https://developer.apple.com', target: '_new'}
-              iOS and OS X app development
-              %i.icon.ion-link
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Academic Education
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      .education-unit
-        .education-unit-timespan 10/2012 &ndash; 03/2016
-        %a{href: 'https://www.wi.uni-muenster.de/prospective-students/bachelor', target: '_new'}
-          Information Systems (BSc)
-          %i.icon.ion-link
-        .education-unit-extra
-          Westfälische Wilhelms-Universität Münster
-          %br
-          Final Grade: &#216; 1.7
-        .education-unit-description
-          :markdown
-            Bachelor Thesis: Implementing Highly Available And Robust Microservices Using An Logistics Example
+                Focus: Service Management and Service Engineering, Development of Mobile Applications for Business Process Management
 
-            Focus: Service Management and Service Engineering, Development of Mobile Applications for Business Process Management
-
-            Study Area: Algebra, Descriptive &amp; Inferential Statistics, Data Management, Software Engineering, Data Structures &amp; Algorithms, Foundations of Business Administration, Accounting, Business Process Management, Project Management
-      .education-unit
-        .education-unit-timespan 10/2005 &ndash; 04/2011
-        Abitur
-        .education-unit-extra
-          Friedrich-List-Gymnasium Reutlingen
-          %br
-          Final Grade: &#216; 2.1
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Other Qualifications
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      %ul.plain-list
-        %li ISTQB Certified Tester &ndash; Foundation Level
-        %li DAAD English Language Certificate &ndash; Level C1
-  .resume-section.pure-g
-    .resume-section-title.pure-u-1.pure-u-md-1-4.column
-      %h2 Languages
-    .resume-section-content.pure-u-1.pure-u-md-3-4.column
-      %ul.plain-list
-        %li
-          German:
-          %i first language
-        %li
-          English:
-          %i fluent
-        %li
-          French:
-          %i basic knowledge
+                Study Area: Algebra, Descriptive &amp; Inferential Statistics, Data Management, Software Engineering, Data Structures &amp; Algorithms, Foundations of Business Administration, Accounting, Business Process Management, Project Management
+          .education-unit
+            .education-unit-timespan 10/2005 &ndash; 04/2011
+            Abitur
+            .education-unit-extra
+              Friedrich-List-Gymnasium Reutlingen
+              %br
+              Final Grade: &#216; 2.1
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Other Qualifications
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          %ul.plain-list
+            %li ISTQB Certified Tester &ndash; Foundation Level
+            %li DAAD English Language Certificate &ndash; Level C1
+      .resume-section.pure-g
+        .resume-section-title.pure-u-1.pure-u-md-1-4.column
+          %h2 Languages
+        .resume-section-content.pure-u-1.pure-u-md-3-4.column
+          %ul.plain-list
+            %li
+              German:
+              %i first language
+            %li
+              English:
+              %i fluent
+            %li
+              French:
+              %i basic knowledge
 
 -#%blockquote
 -#  A goal without a plan is just a wish.
